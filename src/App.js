@@ -9,10 +9,6 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [listUsers, setListUsers] = useState([]);
 
-  useEffect(() => {
-    searchUser();
-  }, [filterData]);
-
   const searchUser = () => {
     const filters = [];
 
@@ -63,6 +59,10 @@ function App() {
   const mountUser = () => {
     return { name, lastName };
   }
+
+  useEffect(() => {
+    searchUser();
+  }, [filterData, searchUser]);
 
   return (
     <div className="App">
